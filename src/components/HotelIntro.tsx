@@ -35,9 +35,9 @@ const HotelIntro = () => {
         {/* Hotel Logo */}
         <div className={`text-center mb-12 transition-all duration-2000 delay-500 ${fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
-            <span className="text-6xl font-bold text-hotel-primary">H</span>
+            <span className="text-6xl font-bold text-hotel-primary">M</span>
           </div>
-          <h1 className="text-6xl font-light text-white mb-4 tracking-wider">HILTON</h1>
+          <h1 className="text-6xl font-light text-white mb-4 tracking-wider">MI HOTEL</h1>
           <h2 className="text-2xl text-white opacity-90 tracking-widest">SAN SALVADOR</h2>
           <p className="text-lg text-white opacity-75 mt-2">El Salvador, Centro América</p>
         </div>

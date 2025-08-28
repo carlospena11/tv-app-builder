@@ -60,8 +60,8 @@ const HiltonHonors = () => {
             <ArrowLeft className="w-6 h-6" />
           </button>
           <div className="text-white">
-            <h1 className="text-3xl font-bold">Hilton Honors</h1>
-            <p className="text-lg opacity-90">Hilton San Salvador</p>
+            <h1 className="text-3xl font-bold">Mi Hotel Rewards</h1>
+            <p className="text-lg opacity-90">Mi Hotel San Salvador</p>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ const HiltonHonors = () => {
           {/* Hotel Information */}
           <div className="space-y-6">
             <Card className="bg-white/90 backdrop-blur-sm border-0 p-6">
-              <h2 className="text-2xl font-bold text-hotel-primary mb-4">Bienvenido a Hilton San Salvador</h2>
+              <h2 className="text-2xl font-bold text-hotel-primary mb-4">Bienvenido a Mi Hotel San Salvador</h2>
               <p className="text-gray-700 mb-4">
                 Ubicado en el corazón de San Salvador, nuestro hotel ofrece la perfecta combinación de 
                 lujo moderno y hospitalidad excepcional. Disfruta de vistas panorámicas de la ciudad 
@@ -105,7 +105,7 @@ const HiltonHonors = () => {
           {/* Hilton Honors Benefits */}
           <div className="space-y-6">
             <Card className="bg-blue-600 text-white border-0 p-6">
-              <h2 className="text-2xl font-bold mb-4">Beneficios Hilton Honors</h2>
+              <h2 className="text-2xl font-bold mb-4">Beneficios Mi Hotel Rewards</h2>
               <p className="mb-6 opacity-90">
                 Únete al programa de lealtad más reconocido del mundo y disfruta de beneficios exclusivos.
               </p>
@@ -127,7 +127,7 @@ const HiltonHonors = () => {
               <div className="space-y-3 text-gray-700">
                 <p><strong>Dirección:</strong> Avenida Las Magnolias, Colonia San Benito, San Salvador</p>
                 <p><strong>Teléfono:</strong> +503 2267-8888</p>
-                <p><strong>Email:</strong> info@hiltonsansalvador.com</p>
+                <p><strong>Email:</strong> info@mihotelsansalvador.com</p>
                 <p><strong>Check-in:</strong> 3:00 PM</p>
                 <p><strong>Check-out:</strong> 12:00 PM</p>
               </div>

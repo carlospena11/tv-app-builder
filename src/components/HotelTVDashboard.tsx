@@ -115,10 +115,10 @@ const HotelTVDashboard = () => {
                 className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200"
                 onClick={() => navigate("/")}
               >
-                <span className="text-3xl font-bold text-hotel-primary">H</span>
+                <span className="text-3xl font-bold text-hotel-primary">M</span>
               </div>
               <div>
-                <h1 className="text-3xl font-bold">Hilton</h1>
+                <h1 className="text-3xl font-bold">Mi Hotel</h1>
                 <p className="text-lg opacity-90">SAN SALVADOR</p>
                 <p className="text-sm opacity-75">El Salvador, Centro América</p>
               </div>
@@ -167,9 +167,9 @@ const HotelTVDashboard = () => {
             />
             <div className="relative z-10 p-6 h-full flex flex-col justify-between">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Hilton Honors</h2>
+                <h2 className="text-2xl font-bold mb-2">Mi Hotel Rewards</h2>
                 <p className="text-sm opacity-90 mb-4">
-                  ¡Únete a Hilton Honors y descubre todos los beneficios exclusivos que tenemos para ti!
+                  ¡Únete a Mi Hotel Rewards y descubre todos los beneficios exclusivos que tenemos para ti!
                 </p>
               </div>
               <button className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/30 hover:bg-white/30 transition-colors text-sm font-medium self-start">
