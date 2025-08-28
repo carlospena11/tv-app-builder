@@ -1,6 +1,7 @@
 import { ArrowLeft, Plane, Clock, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import airportBg from "@/assets/airport-bg.jpg";
 
 const FlightStatus = () => {
   const navigate = useNavigate();
@@ -89,8 +90,16 @@ const FlightStatus = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-hotel-bg to-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-hotel-overlay" />
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${airportBg})` }}
+      />
+      {/* Blur Overlay */}
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/40" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-hotel-bg/60 to-background/60" />
       
       <div className="relative z-10 p-8">
         {/* Header */}
