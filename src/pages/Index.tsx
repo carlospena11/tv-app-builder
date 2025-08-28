@@ -1,7 +1,7 @@
-import HotelTVDashboard from "@/components/HotelTVDashboard";
+import HotelIntro from "@/components/HotelIntro";
 
 const Index = () => {
-  return <HotelTVDashboard />;
+  return <HotelIntro />;
 };
 
 export default Index;

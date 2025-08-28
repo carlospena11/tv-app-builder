@@ -140,7 +140,7 @@ const FlightStatus = () => {
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
           <button 
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/dashboard")}
             className="p-2 bg-amber-400 text-black rounded-lg hover:bg-amber-300 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />

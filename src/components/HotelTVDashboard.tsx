@@ -111,7 +111,10 @@ const HotelTVDashboard = () => {
           {/* Hotel Logo and Info */}
           <div className="text-white">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <div 
+                className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200"
+                onClick={() => navigate("/")}
+              >
                 <span className="text-3xl font-bold text-hotel-primary">H</span>
               </div>
               <div>
@@ -156,7 +159,7 @@ const HotelTVDashboard = () => {
           {/* Hilton Honors - Large card */}
           <Card 
             className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:bg-blue-700 transition-colors"
-            onClick={() => navigate("/hilton-honors")}
+            onClick={() => navigate("/dashboard/hilton-honors")}
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -178,7 +181,7 @@ const HotelTVDashboard = () => {
           {/* Flight Status */}
           <Card 
             className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:from-orange-600 hover:to-orange-700 transition-colors"
-            onClick={() => navigate("/flight-status")}
+            onClick={() => navigate("/dashboard/flight-status")}
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -200,7 +203,7 @@ const HotelTVDashboard = () => {
         <div className="grid grid-cols-3 gap-6 mb-8">
           <Card 
             className="bg-green-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-green-700 transition-colors relative"
-            onClick={() => navigate("/hotel-amenities")}
+            onClick={() => navigate("/dashboard/hotel-amenities")}
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -217,7 +220,7 @@ const HotelTVDashboard = () => {
 
           <Card 
             className="bg-gray-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-gray-700 transition-colors relative"
-            onClick={() => navigate("/menu-services")}
+            onClick={() => navigate("/dashboard/menu-services")}
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -234,7 +237,7 @@ const HotelTVDashboard = () => {
 
           <Card 
             className="bg-red-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-red-700 transition-colors relative"
-            onClick={() => navigate("/discover-el-salvador")}
+            onClick={() => navigate("/dashboard/discover-el-salvador")}
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
