@@ -3,6 +3,11 @@ import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
+import hiltonHonorsIcon from "@/assets/hilton-honors-icon.jpg";
+import flightStatusIcon from "@/assets/flight-status-icon.jpg";
+import hotelAmenitiesIcon from "@/assets/hotel-amenities-icon.jpg";
+import menuServicesIcon from "@/assets/menu-services-icon.jpg";
+import elSalvadorTourismIcon from "@/assets/el-salvador-tourism-icon.jpg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
@@ -153,7 +158,11 @@ const HotelTVDashboard = () => {
             className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:bg-blue-700 transition-colors"
             onClick={() => navigate("/hilton-honors")}
           >
-            <div className="p-6 h-full flex flex-col justify-between">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-20"
+              style={{ backgroundImage: `url(${hiltonHonorsIcon})` }}
+            />
+            <div className="relative z-10 p-6 h-full flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Hilton Honors</h2>
                 <p className="text-sm opacity-90 mb-4">
@@ -171,7 +180,11 @@ const HotelTVDashboard = () => {
             className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:from-orange-600 hover:to-orange-700 transition-colors"
             onClick={() => navigate("/flight-status")}
           >
-            <div className="p-6 h-full flex items-center justify-between">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-20"
+              style={{ backgroundImage: `url(${flightStatusIcon})` }}
+            />
+            <div className="relative z-10 p-6 h-full flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Flight status</h2>
                 <p className="text-sm opacity-90">Check your flight information</p>
@@ -186,10 +199,14 @@ const HotelTVDashboard = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-3 gap-6 mb-8">
           <Card 
-            className="bg-green-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-green-700 transition-colors"
+            className="bg-green-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-green-700 transition-colors relative"
             onClick={() => navigate("/hotel-amenities")}
           >
-            <div className="p-4 h-full flex items-center justify-between">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-20"
+              style={{ backgroundImage: `url(${hotelAmenitiesIcon})` }}
+            />
+            <div className="relative z-10 p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Enjoy your Hotel</h3>
                 <p className="text-xs opacity-90">Discover amenities</p>
@@ -199,10 +216,14 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-gray-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-gray-700 transition-colors"
+            className="bg-gray-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-gray-700 transition-colors relative"
             onClick={() => navigate("/menu-services")}
           >
-            <div className="p-4 h-full flex items-center justify-between">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-20"
+              style={{ backgroundImage: `url(${menuServicesIcon})` }}
+            />
+            <div className="relative z-10 p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Menu and services</h3>
                 <p className="text-xs opacity-90">Room service & dining</p>
@@ -212,10 +233,14 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-red-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-red-700 transition-colors"
+            className="bg-red-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-red-700 transition-colors relative"
             onClick={() => navigate("/discover-el-salvador")}
           >
-            <div className="p-4 h-full flex items-center justify-between">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-20"
+              style={{ backgroundImage: `url(${elSalvadorTourismIcon})` }}
+            />
+            <div className="relative z-10 p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Discover El Salvador</h3>
                 <p className="text-xs opacity-90">Local attractions</p>
