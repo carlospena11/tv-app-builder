@@ -1,7 +1,10 @@
 import { Clock, Wifi, Thermometer } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const HotelTVDashboard = () => {
+  const navigate = useNavigate();
+  
   const currentTime = new Date().toLocaleTimeString([], { 
     hour: '2-digit', 
     minute: '2-digit',
@@ -84,7 +87,10 @@ const HotelTVDashboard = () => {
         {/* Main Content Grid */}
         <div className="grid grid-cols-12 gap-6 mb-8">
           {/* Hilton Honors - Large card */}
-          <Card className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48">
+          <Card 
+            className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:bg-blue-700 transition-colors"
+            onClick={() => navigate("/hilton-honors")}
+          >
             <div className="p-6 h-full flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Hilton Honors</h2>
@@ -99,7 +105,10 @@ const HotelTVDashboard = () => {
           </Card>
 
           {/* Flight Status */}
-          <Card className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48">
+          <Card 
+            className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:from-orange-600 hover:to-orange-700 transition-colors"
+            onClick={() => navigate("/flight-status")}
+          >
             <div className="p-6 h-full flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Flight status</h2>
@@ -114,7 +123,10 @@ const HotelTVDashboard = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-3 gap-6 mb-8">
-          <Card className="bg-green-600 text-white border-0 overflow-hidden h-32">
+          <Card 
+            className="bg-green-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-green-700 transition-colors"
+            onClick={() => navigate("/hotel-amenities")}
+          >
             <div className="p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Enjoy your Hotel</h3>
@@ -124,7 +136,10 @@ const HotelTVDashboard = () => {
             </div>
           </Card>
 
-          <Card className="bg-gray-600 text-white border-0 overflow-hidden h-32">
+          <Card 
+            className="bg-gray-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-gray-700 transition-colors"
+            onClick={() => navigate("/menu-services")}
+          >
             <div className="p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Menu and services</h3>
@@ -134,7 +149,10 @@ const HotelTVDashboard = () => {
             </div>
           </Card>
 
-          <Card className="bg-red-600 text-white border-0 overflow-hidden h-32">
+          <Card 
+            className="bg-red-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-red-700 transition-colors"
+            onClick={() => navigate("/discover-el-salvador")}
+          >
             <div className="p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Discover El Salvador</h3>
@@ -148,7 +166,21 @@ const HotelTVDashboard = () => {
         {/* Streaming Apps */}
         <div className="grid grid-cols-6 gap-4">
           {streamingApps.map((app, index) => (
-            <Card key={index} className="bg-white/90 backdrop-blur-sm border-0 hover:bg-white transition-colors cursor-pointer">
+            <Card 
+              key={index} 
+              className="bg-white/90 backdrop-blur-sm border-0 hover:bg-white transition-colors cursor-pointer"
+              onClick={() => {
+                const urls: { [key: string]: string } = {
+                  "Netflix": "https://netflix.com",
+                  "Prime Video": "https://primevideo.com",
+                  "Disney+": "https://disneyplus.com",
+                  "YouTube": "https://youtube.com"
+                };
+                if (urls[app.name]) {
+                  window.open(urls[app.name], '_blank');
+                }
+              }}
+            >
               <div className="p-4 text-center">
                 <div className="text-2xl mb-2">{app.logo}</div>
                 <p className="text-sm font-medium text-gray-800">{app.name}</p>
