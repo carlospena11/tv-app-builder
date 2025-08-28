@@ -5,6 +5,28 @@ import airportBg from "@/assets/airport-bg.jpg";
 const FlightStatus = () => {
   const navigate = useNavigate();
 
+  const getAirlineLogo = (airline: string) => {
+    const logos: { [key: string]: string } = {
+      "AVIANCA": "AV",
+      "COPA": "CM",
+      "AMERICAN": "AA",
+      "TACA": "TA", 
+      "AEROMEXICO": "AM"
+    };
+    return logos[airline] || airline.substring(0, 2);
+  };
+
+  const getAirlineColor = (airline: string) => {
+    const colors: { [key: string]: string } = {
+      "AVIANCA": "bg-red-600",
+      "COPA": "bg-blue-600",
+      "AMERICAN": "bg-blue-800",
+      "TACA": "bg-green-600",
+      "AEROMEXICO": "bg-orange-600"
+    };
+    return colors[airline] || "bg-gray-600";
+  };
+
   const arrivals = [
     {
       time: "08:45",
@@ -143,7 +165,8 @@ const FlightStatus = () => {
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
+            <div className="bg-gray-800 p-2 grid grid-cols-6 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
+              <div>AIRLINE</div>
               <div>TIME</div>
               <div>ORIGIN</div>
               <div>FLIGHT</div>
@@ -154,7 +177,12 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {arrivals.map((flight, index) => (
-                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                <div key={index} className="p-2 grid grid-cols-6 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                  <div className="flex items-center">
+                    <div className={`${getAirlineColor(flight.airline)} text-white text-xs font-bold px-2 py-1 rounded`}>
+                      {getAirlineLogo(flight.airline)}
+                    </div>
+                  </div>
                   <div className="font-bold">{flight.time}</div>
                   <div>{flight.origin}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
@@ -177,7 +205,8 @@ const FlightStatus = () => {
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
+            <div className="bg-gray-800 p-2 grid grid-cols-6 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
+              <div>AIRLINE</div>
               <div>TIME</div>
               <div>DESTINATION</div>
               <div>FLIGHT</div>
@@ -188,7 +217,12 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {departures.map((flight, index) => (
-                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                <div key={index} className="p-2 grid grid-cols-6 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                  <div className="flex items-center">
+                    <div className={`${getAirlineColor(flight.airline)} text-white text-xs font-bold px-2 py-1 rounded`}>
+                      {getAirlineLogo(flight.airline)}
+                    </div>
+                  </div>
                   <div className="font-bold">{flight.time}</div>
                   <div>{flight.destination}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
