@@ -116,34 +116,34 @@ const FlightStatus = () => {
       
       <div className="relative z-10 p-8 font-mono">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-3 mb-6">
           <button 
             onClick={() => navigate("/")}
-            className="p-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-300 transition-colors"
+            className="p-2 bg-yellow-600 text-black rounded-lg hover:bg-yellow-500 transition-colors"
           >
-            <ArrowLeft className="w-6 h-6" />
+            <ArrowLeft className="w-5 h-5" />
           </button>
-          <div className="text-yellow-400">
-            <h1 className="text-4xl font-bold flex items-center gap-3 uppercase tracking-wider">
-              <Plane className="w-10 h-10" />
+          <div className="text-yellow-600">
+            <h1 className="text-2xl font-bold flex items-center gap-2 uppercase tracking-wide">
+              <Plane className="w-7 h-7" />
               FLIGHT STATUS
             </h1>
-            <p className="text-lg opacity-90 tracking-wide">MONSEÑOR OSCAR ARNULFO ROMERO INTERNATIONAL AIRPORT (SAL)</p>
+            <p className="text-sm opacity-90 tracking-wide">MONSEÑOR OSCAR ARNULFO ROMERO INTERNATIONAL AIRPORT (SAL)</p>
           </div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {/* Arrivals */}
-          <div className="bg-black border border-yellow-400 rounded-lg overflow-hidden">
-            <div className="bg-yellow-400 text-black p-4">
-              <div className="flex items-center gap-3">
-                <Plane className="w-6 h-6 rotate-45" />
-                <h2 className="text-2xl font-bold uppercase tracking-wider">ARRIVALS</h2>
+          <div className="bg-black border border-yellow-600 rounded-lg overflow-hidden">
+            <div className="bg-yellow-600 text-black p-3">
+              <div className="flex items-center gap-2">
+                <Plane className="w-5 h-5 rotate-45" />
+                <h2 className="text-lg font-bold uppercase tracking-wide">ARRIVALS</h2>
               </div>
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-3 grid grid-cols-5 gap-4 text-yellow-400 font-bold uppercase tracking-wide text-sm">
+            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-yellow-600 font-bold uppercase tracking-wide text-xs">
               <div>TIME</div>
               <div>ORIGIN</div>
               <div>FLIGHT</div>
@@ -154,8 +154,8 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {arrivals.map((flight, index) => (
-                <div key={index} className="p-3 grid grid-cols-5 gap-4 text-yellow-400 uppercase tracking-wide hover:bg-gray-900 transition-colors">
-                  <div className="font-bold text-lg">{flight.time}</div>
+                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-yellow-600 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                  <div className="font-bold">{flight.time}</div>
                   <div>{flight.origin}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
                   <div>{flight.gate}</div>
@@ -168,16 +168,16 @@ const FlightStatus = () => {
           </div>
 
           {/* Departures */}
-          <div className="bg-black border border-yellow-400 rounded-lg overflow-hidden">
-            <div className="bg-yellow-400 text-black p-4">
-              <div className="flex items-center gap-3">
-                <Plane className="w-6 h-6 -rotate-45" />
-                <h2 className="text-2xl font-bold uppercase tracking-wider">DEPARTURES</h2>
+          <div className="bg-black border border-yellow-600 rounded-lg overflow-hidden">
+            <div className="bg-yellow-600 text-black p-3">
+              <div className="flex items-center gap-2">
+                <Plane className="w-5 h-5 -rotate-45" />
+                <h2 className="text-lg font-bold uppercase tracking-wide">DEPARTURES</h2>
               </div>
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-3 grid grid-cols-5 gap-4 text-yellow-400 font-bold uppercase tracking-wide text-sm">
+            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-yellow-600 font-bold uppercase tracking-wide text-xs">
               <div>TIME</div>
               <div>DESTINATION</div>
               <div>FLIGHT</div>
@@ -188,8 +188,8 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {departures.map((flight, index) => (
-                <div key={index} className="p-3 grid grid-cols-5 gap-4 text-yellow-400 uppercase tracking-wide hover:bg-gray-900 transition-colors">
-                  <div className="font-bold text-lg">{flight.time}</div>
+                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-yellow-600 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                  <div className="font-bold">{flight.time}</div>
                   <div>{flight.destination}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
                   <div>{flight.gate}</div>
@@ -203,25 +203,25 @@ const FlightStatus = () => {
         </div>
 
         {/* Airport Info */}
-        <div className="mt-8 bg-black border border-yellow-400 rounded-lg overflow-hidden">
-          <div className="bg-yellow-400 text-black p-4">
-            <h3 className="text-xl font-bold uppercase tracking-wider">AIRPORT INFORMATION</h3>
+        <div className="mt-6 bg-black border border-yellow-600 rounded-lg overflow-hidden">
+          <div className="bg-yellow-600 text-black p-3">
+            <h3 className="text-lg font-bold uppercase tracking-wide">AIRPORT INFORMATION</h3>
           </div>
-          <div className="p-6 grid grid-cols-3 gap-6 text-center">
-            <div className="text-yellow-400">
-              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">TIME TO AIRPORT</h4>
-              <p className="text-4xl font-bold text-green-400">25 MIN</p>
-              <p className="text-sm opacity-75 uppercase">FROM HOTEL</p>
+          <div className="p-4 grid grid-cols-3 gap-4 text-center">
+            <div className="text-yellow-600">
+              <h4 className="font-bold text-sm uppercase tracking-wide mb-1">TIME TO AIRPORT</h4>
+              <p className="text-2xl font-bold text-green-400">25 MIN</p>
+              <p className="text-xs opacity-75 uppercase">FROM HOTEL</p>
             </div>
-            <div className="text-yellow-400">
-              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">SHUTTLE SERVICE</h4>
-              <p className="text-4xl font-bold text-green-400">$15</p>
-              <p className="text-sm opacity-75 uppercase">PER PERSON</p>
+            <div className="text-yellow-600">
+              <h4 className="font-bold text-sm uppercase tracking-wide mb-1">SHUTTLE SERVICE</h4>
+              <p className="text-2xl font-bold text-green-400">$15</p>
+              <p className="text-xs opacity-75 uppercase">PER PERSON</p>
             </div>
-            <div className="text-yellow-400">
-              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">TAXI</h4>
-              <p className="text-4xl font-bold text-green-400">$20-25</p>
-              <p className="text-sm opacity-75 uppercase">AVERAGE FARE</p>
+            <div className="text-yellow-600">
+              <h4 className="font-bold text-sm uppercase tracking-wide mb-1">TAXI</h4>
+              <p className="text-2xl font-bold text-green-400">$20-25</p>
+              <p className="text-xs opacity-75 uppercase">AVERAGE FARE</p>
             </div>
           </div>
         </div>
