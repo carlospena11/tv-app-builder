@@ -2,6 +2,7 @@ import { Clock, Wifi, Thermometer, Sun, Cloud, CloudRain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
@@ -87,9 +88,16 @@ const HotelTVDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-hotel-bg to-background relative overflow-hidden">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-hotel-overlay" />
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${hotelRoomBg})` }}
+      />
+      {/* Blur Overlay */}
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/40" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-hotel-bg/60 to-background/60" />
       
       {/* Content */}
       <div className="relative z-10 p-8">
