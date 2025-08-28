@@ -1,5 +1,4 @@
-import { ArrowLeft, Plane, Clock, MapPin } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { ArrowLeft, Plane } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import airportBg from "@/assets/airport-bg.jpg";
 
@@ -8,218 +7,224 @@ const FlightStatus = () => {
 
   const arrivals = [
     {
-      airline: "Avianca",
+      time: "08:45",
+      origin: "GUATEMALA CITY",
       flight: "AV523",
-      origin: "Guatemala City (GUA)",
-      scheduled: "08:45",
-      status: "En hora",
-      gate: "A3"
+      gate: "A3",
+      status: "ON TIME",
+      airline: "AVIANCA"
     },
     {
-      airline: "Copa Airlines",
+      time: "10:30",
+      origin: "PANAMA CITY",
       flight: "CM315",
-      origin: "Panamá City (PTY)",
-      scheduled: "10:30",
-      status: "Retrasado",
-      gate: "B2"
+      gate: "B2",
+      status: "DELAYED",
+      airline: "COPA"
     },
     {
-      airline: "American Airlines",
+      time: "14:20",
+      origin: "MIAMI",
       flight: "AA1234",
-      origin: "Miami (MIA)",
-      scheduled: "14:20",
-      status: "En hora",
-      gate: "A1"
+      gate: "A1",
+      status: "ON TIME",
+      airline: "AMERICAN"
     },
     {
-      airline: "TACA",
+      time: "16:15",
+      origin: "SAN JOSE",
       flight: "TA456",
-      origin: "San José (SJO)",
-      scheduled: "16:15",
-      status: "En hora",
-      gate: "A4"
+      gate: "A4",
+      status: "BOARDING",
+      airline: "TACA"
+    },
+    {
+      time: "18:30",
+      origin: "MEXICO CITY",
+      flight: "AM442",
+      gate: "B1",
+      status: "CANCELLED",
+      airline: "AEROMEXICO"
     }
   ];
 
   const departures = [
     {
-      airline: "Avianca",
+      time: "09:30",
+      destination: "GUATEMALA CITY",
       flight: "AV524",
-      destination: "Guatemala City (GUA)",
-      scheduled: "09:30",
-      status: "Abordando",
-      gate: "A3"
+      gate: "A3",
+      status: "BOARDING",
+      airline: "AVIANCA"
     },
     {
-      airline: "Copa Airlines",
+      time: "11:45",
+      destination: "PANAMA CITY",
       flight: "CM316",
-      destination: "Panamá City (PTY)",
-      scheduled: "11:45",
-      status: "En hora",
-      gate: "B2"
+      gate: "B2",
+      status: "ON TIME",
+      airline: "COPA"
     },
     {
-      airline: "American Airlines",
+      time: "15:30",
+      destination: "MIAMI",
       flight: "AA1235",
-      destination: "Miami (MIA)",
-      scheduled: "15:30",
-      status: "En hora",
-      gate: "A1"
+      gate: "A1",
+      status: "ON TIME",
+      airline: "AMERICAN"
     },
     {
-      airline: "TACA",
+      time: "17:00",
+      destination: "SAN JOSE",
       flight: "TA457",
-      destination: "San José (SJO)",
-      scheduled: "17:00",
-      status: "En hora",
-      gate: "A4"
+      gate: "A4",
+      status: "DELAYED",
+      airline: "TACA"
+    },
+    {
+      time: "19:15",
+      destination: "MEXICO CITY",
+      flight: "AM443",
+      gate: "B1",
+      status: "CANCELLED",
+      airline: "AEROMEXICO"
     }
   ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "En hora":
-        return "text-green-600";
-      case "Retrasado":
-        return "text-red-600";
-      case "Abordando":
-        return "text-orange-600";
+      case "ON TIME":
+        return "text-green-400";
+      case "DELAYED":
+        return "text-yellow-400";
+      case "BOARDING":
+        return "text-blue-400";
+      case "CANCELLED":
+        return "text-red-400";
       default:
-        return "text-gray-600";
+        return "text-gray-400";
     }
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image */}
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Background Image with heavy dark overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
         style={{ backgroundImage: `url(${airportBg})` }}
       />
-      {/* Blur Overlay */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/40" />
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-hotel-bg/60 to-background/60" />
       
-      <div className="relative z-10 p-8">
+      <div className="relative z-10 p-8 font-mono">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <button 
             onClick={() => navigate("/")}
-            className="p-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors"
+            className="p-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-300 transition-colors"
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
-          <div className="text-white">
-            <h1 className="text-3xl font-bold flex items-center gap-3">
-              <Plane className="w-8 h-8" />
-              Estado de Vuelos
+          <div className="text-yellow-400">
+            <h1 className="text-4xl font-bold flex items-center gap-3 uppercase tracking-wider">
+              <Plane className="w-10 h-10" />
+              FLIGHT STATUS
             </h1>
-            <p className="text-lg opacity-90">Aeropuerto Internacional Monseñor Óscar Arnulfo Romero (SAL)</p>
+            <p className="text-lg opacity-90 tracking-wide">MONSEÑOR OSCAR ARNULFO ROMERO INTERNATIONAL AIRPORT (SAL)</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
+        <div className="space-y-8">
           {/* Arrivals */}
-          <Card className="bg-white/90 backdrop-blur-sm border-0 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <Plane className="w-6 h-6 text-green-600 rotate-45" />
+          <div className="bg-black border border-yellow-400 rounded-lg overflow-hidden">
+            <div className="bg-yellow-400 text-black p-4">
+              <div className="flex items-center gap-3">
+                <Plane className="w-6 h-6 rotate-45" />
+                <h2 className="text-2xl font-bold uppercase tracking-wider">ARRIVALS</h2>
               </div>
-              <h2 className="text-2xl font-bold text-hotel-primary">Llegadas</h2>
             </div>
             
-            <div className="space-y-4">
+            {/* Header */}
+            <div className="bg-gray-800 p-3 grid grid-cols-5 gap-4 text-yellow-400 font-bold uppercase tracking-wide text-sm">
+              <div>TIME</div>
+              <div>ORIGIN</div>
+              <div>FLIGHT</div>
+              <div>GATE</div>
+              <div>STATUS</div>
+            </div>
+            
+            {/* Flights */}
+            <div className="divide-y divide-gray-700">
               {arrivals.map((flight, index) => (
-                <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="font-bold text-lg">{flight.airline}</h3>
-                      <p className="text-hotel-primary font-semibold">{flight.flight}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Clock className="w-4 h-4" />
-                        <span>{flight.scheduled}</span>
-                      </div>
-                      <span className={`text-sm font-semibold ${getStatusColor(flight.status)}`}>
-                        {flight.status}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      <span>{flight.origin}</span>
-                    </div>
-                    <span>Puerta: {flight.gate}</span>
+                <div key={index} className="p-3 grid grid-cols-5 gap-4 text-yellow-400 uppercase tracking-wide hover:bg-gray-900 transition-colors">
+                  <div className="font-bold text-lg">{flight.time}</div>
+                  <div>{flight.origin}</div>
+                  <div className="text-white font-bold">{flight.flight}</div>
+                  <div>{flight.gate}</div>
+                  <div className={`font-bold ${getStatusColor(flight.status)}`}>
+                    {flight.status}
                   </div>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
 
           {/* Departures */}
-          <Card className="bg-white/90 backdrop-blur-sm border-0 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Plane className="w-6 h-6 text-blue-600 -rotate-45" />
+          <div className="bg-black border border-yellow-400 rounded-lg overflow-hidden">
+            <div className="bg-yellow-400 text-black p-4">
+              <div className="flex items-center gap-3">
+                <Plane className="w-6 h-6 -rotate-45" />
+                <h2 className="text-2xl font-bold uppercase tracking-wider">DEPARTURES</h2>
               </div>
-              <h2 className="text-2xl font-bold text-hotel-primary">Salidas</h2>
             </div>
             
-            <div className="space-y-4">
+            {/* Header */}
+            <div className="bg-gray-800 p-3 grid grid-cols-5 gap-4 text-yellow-400 font-bold uppercase tracking-wide text-sm">
+              <div>TIME</div>
+              <div>DESTINATION</div>
+              <div>FLIGHT</div>
+              <div>GATE</div>
+              <div>STATUS</div>
+            </div>
+            
+            {/* Flights */}
+            <div className="divide-y divide-gray-700">
               {departures.map((flight, index) => (
-                <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="font-bold text-lg">{flight.airline}</h3>
-                      <p className="text-hotel-primary font-semibold">{flight.flight}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Clock className="w-4 h-4" />
-                        <span>{flight.scheduled}</span>
-                      </div>
-                      <span className={`text-sm font-semibold ${getStatusColor(flight.status)}`}>
-                        {flight.status}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      <span>{flight.destination}</span>
-                    </div>
-                    <span>Puerta: {flight.gate}</span>
+                <div key={index} className="p-3 grid grid-cols-5 gap-4 text-yellow-400 uppercase tracking-wide hover:bg-gray-900 transition-colors">
+                  <div className="font-bold text-lg">{flight.time}</div>
+                  <div>{flight.destination}</div>
+                  <div className="text-white font-bold">{flight.flight}</div>
+                  <div>{flight.gate}</div>
+                  <div className={`font-bold ${getStatusColor(flight.status)}`}>
+                    {flight.status}
                   </div>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
         </div>
 
         {/* Airport Info */}
-        <Card className="bg-white/90 backdrop-blur-sm border-0 p-6 mt-8">
-          <h3 className="text-xl font-bold text-hotel-primary mb-4">Información del Aeropuerto</h3>
-          <div className="grid grid-cols-3 gap-6 text-center">
-            <div>
-              <h4 className="font-semibold text-gray-800">Tiempo al Aeropuerto</h4>
-              <p className="text-2xl font-bold text-hotel-primary">25 min</p>
-              <p className="text-sm text-gray-600">Desde el hotel</p>
+        <div className="mt-8 bg-black border border-yellow-400 rounded-lg overflow-hidden">
+          <div className="bg-yellow-400 text-black p-4">
+            <h3 className="text-xl font-bold uppercase tracking-wider">AIRPORT INFORMATION</h3>
+          </div>
+          <div className="p-6 grid grid-cols-3 gap-6 text-center">
+            <div className="text-yellow-400">
+              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">TIME TO AIRPORT</h4>
+              <p className="text-4xl font-bold text-green-400">25 MIN</p>
+              <p className="text-sm opacity-75 uppercase">FROM HOTEL</p>
             </div>
-            <div>
-              <h4 className="font-semibold text-gray-800">Servicio de Shuttle</h4>
-              <p className="text-2xl font-bold text-hotel-primary">$15</p>
-              <p className="text-sm text-gray-600">Por persona</p>
+            <div className="text-yellow-400">
+              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">SHUTTLE SERVICE</h4>
+              <p className="text-4xl font-bold text-green-400">$15</p>
+              <p className="text-sm opacity-75 uppercase">PER PERSON</p>
             </div>
-            <div>
-              <h4 className="font-semibold text-gray-800">Taxi</h4>
-              <p className="text-2xl font-bold text-hotel-primary">$20-25</p>
-              <p className="text-sm text-gray-600">Tarifa promedio</p>
+            <div className="text-yellow-400">
+              <h4 className="font-bold text-lg uppercase tracking-wide mb-2">TAXI</h4>
+              <p className="text-4xl font-bold text-green-400">$20-25</p>
+              <p className="text-sm opacity-75 uppercase">AVERAGE FARE</p>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );
