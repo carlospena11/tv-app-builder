@@ -1,15 +1,47 @@
-import { Clock, Wifi, Thermometer } from "lucide-react";
+import { Clock, Wifi, Thermometer, Sun, Cloud, CloudRain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
-  
-  const currentTime = new Date().toLocaleTimeString([], { 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  // Update time every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Format time for display
+  const timeString = currentTime.toLocaleTimeString([], { 
     hour: '2-digit', 
     minute: '2-digit',
+    second: '2-digit',
     hour12: true 
   });
+
+  // Format date for display
+  const dateString = currentTime.toLocaleDateString('es-ES', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  // Weather data for El Salvador (could be connected to a real API)
+  const weatherData = {
+    temperature: 28,
+    condition: "Soleado",
+    humidity: 65,
+    windSpeed: 12,
+    icon: <Sun className="w-6 h-6" />,
+    high: 32,
+    low: 22
+  };
 
   const services = [
     {
@@ -63,23 +95,45 @@ const HotelTVDashboard = () => {
       <div className="relative z-10 p-8">
         {/* Header */}
         <div className="flex justify-between items-start mb-8">
+          {/* Hotel Logo and Info */}
           <div className="text-white">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-hotel-primary">H</span>
+            <div className="flex items-center gap-4 mb-2">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-3xl font-bold text-hotel-primary">H</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold">Hilton</h1>
-                <p className="text-sm opacity-90">SAN SALVADOR</p>
+                <h1 className="text-3xl font-bold">Hilton</h1>
+                <p className="text-lg opacity-90">SAN SALVADOR</p>
+                <p className="text-sm opacity-75">El Salvador, Centro América</p>
               </div>
             </div>
           </div>
           
+          {/* Time and Weather */}
           <div className="text-white text-right">
-            <div className="text-3xl font-light mb-1">{currentTime}</div>
-            <div className="flex items-center gap-2 text-sm opacity-90">
-              <Thermometer className="w-4 h-4" />
-              <span>18.29°C</span>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-4">
+              <div className="text-4xl font-light mb-1">{timeString}</div>
+              <div className="text-sm opacity-90 capitalize">{dateString}</div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center justify-end gap-3 mb-2">
+                {weatherData.icon}
+                <div>
+                  <div className="text-2xl font-bold">{weatherData.temperature}°C</div>
+                  <div className="text-sm opacity-90">{weatherData.condition}</div>
+                </div>
+              </div>
+              <div className="text-xs opacity-75 space-y-1">
+                <div className="flex justify-between gap-4">
+                  <span>Máx: {weatherData.high}°C</span>
+                  <span>Mín: {weatherData.low}°C</span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span>Humedad: {weatherData.humidity}%</span>
+                  <span>Viento: {weatherData.windSpeed} km/h</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
