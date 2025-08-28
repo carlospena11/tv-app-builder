@@ -119,11 +119,11 @@ const FlightStatus = () => {
         <div className="flex items-center gap-3 mb-6">
           <button 
             onClick={() => navigate("/")}
-            className="p-2 bg-yellow-600 text-black rounded-lg hover:bg-yellow-500 transition-colors"
+            className="p-2 bg-amber-400 text-black rounded-lg hover:bg-amber-300 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
-          <div className="text-yellow-600">
+          <div className="text-amber-400">
             <h1 className="text-2xl font-bold flex items-center gap-2 uppercase tracking-wide">
               <Plane className="w-7 h-7" />
               FLIGHT STATUS
@@ -134,8 +134,8 @@ const FlightStatus = () => {
 
         <div className="space-y-6">
           {/* Arrivals */}
-          <div className="bg-black border border-yellow-600 rounded-lg overflow-hidden">
-            <div className="bg-yellow-600 text-black p-3">
+          <div className="bg-black border border-amber-400 rounded-lg overflow-hidden">
+            <div className="bg-amber-400 text-black p-3">
               <div className="flex items-center gap-2">
                 <Plane className="w-5 h-5 rotate-45" />
                 <h2 className="text-lg font-bold uppercase tracking-wide">ARRIVALS</h2>
@@ -143,7 +143,7 @@ const FlightStatus = () => {
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-yellow-600 font-bold uppercase tracking-wide text-xs">
+            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
               <div>TIME</div>
               <div>ORIGIN</div>
               <div>FLIGHT</div>
@@ -154,7 +154,7 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {arrivals.map((flight, index) => (
-                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-yellow-600 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
                   <div className="font-bold">{flight.time}</div>
                   <div>{flight.origin}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
@@ -168,8 +168,8 @@ const FlightStatus = () => {
           </div>
 
           {/* Departures */}
-          <div className="bg-black border border-yellow-600 rounded-lg overflow-hidden">
-            <div className="bg-yellow-600 text-black p-3">
+          <div className="bg-black border border-amber-400 rounded-lg overflow-hidden">
+            <div className="bg-amber-400 text-black p-3">
               <div className="flex items-center gap-2">
                 <Plane className="w-5 h-5 -rotate-45" />
                 <h2 className="text-lg font-bold uppercase tracking-wide">DEPARTURES</h2>
@@ -177,7 +177,7 @@ const FlightStatus = () => {
             </div>
             
             {/* Header */}
-            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-yellow-600 font-bold uppercase tracking-wide text-xs">
+            <div className="bg-gray-800 p-2 grid grid-cols-5 gap-3 text-amber-400 font-bold uppercase tracking-wide text-xs">
               <div>TIME</div>
               <div>DESTINATION</div>
               <div>FLIGHT</div>
@@ -188,7 +188,7 @@ const FlightStatus = () => {
             {/* Flights */}
             <div className="divide-y divide-gray-700">
               {departures.map((flight, index) => (
-                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-yellow-600 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
+                <div key={index} className="p-2 grid grid-cols-5 gap-3 text-amber-400 uppercase tracking-wide hover:bg-gray-900 transition-colors text-sm">
                   <div className="font-bold">{flight.time}</div>
                   <div>{flight.destination}</div>
                   <div className="text-white font-bold">{flight.flight}</div>
@@ -203,22 +203,22 @@ const FlightStatus = () => {
         </div>
 
         {/* Airport Info */}
-        <div className="mt-6 bg-black border border-yellow-600 rounded-lg overflow-hidden">
-          <div className="bg-yellow-600 text-black p-3">
+        <div className="mt-6 bg-black border border-amber-400 rounded-lg overflow-hidden">
+          <div className="bg-amber-400 text-black p-3">
             <h3 className="text-lg font-bold uppercase tracking-wide">AIRPORT INFORMATION</h3>
           </div>
           <div className="p-4 grid grid-cols-3 gap-4 text-center">
-            <div className="text-yellow-600">
+            <div className="text-amber-400">
               <h4 className="font-bold text-sm uppercase tracking-wide mb-1">TIME TO AIRPORT</h4>
               <p className="text-2xl font-bold text-green-400">25 MIN</p>
               <p className="text-xs opacity-75 uppercase">FROM HOTEL</p>
             </div>
-            <div className="text-yellow-600">
+            <div className="text-amber-400">
               <h4 className="font-bold text-sm uppercase tracking-wide mb-1">SHUTTLE SERVICE</h4>
               <p className="text-2xl font-bold text-green-400">$15</p>
               <p className="text-xs opacity-75 uppercase">PER PERSON</p>
             </div>
-            <div className="text-yellow-600">
+            <div className="text-amber-400">
               <h4 className="font-bold text-sm uppercase tracking-wide mb-1">TAXI</h4>
               <p className="text-2xl font-bold text-green-400">$20-25</p>
               <p className="text-xs opacity-75 uppercase">AVERAGE FARE</p>
