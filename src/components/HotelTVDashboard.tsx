@@ -313,10 +313,10 @@ const HotelTVDashboard = () => {
                   <img 
                     src={app.logo} 
                     alt={app.name} 
-                    className={`${app.isQR ? 'w-12 h-12' : 'w-8 h-8'} mx-auto mb-2 object-contain`} 
+                    className={`${app.isQR ? 'w-full h-16' : 'w-full h-12'} mx-auto mb-2 object-contain`} 
                   />
                 ) : (
-                  <div className="text-2xl mb-2">{app.logo}</div>
+                  <div className="text-3xl mb-2">{app.logo}</div>
                 )}
                 <p className="text-sm font-medium text-gray-800">{app.name}</p>
               </div>
