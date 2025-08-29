@@ -2,7 +2,7 @@ import { ArrowLeft, Star, Wifi, Waves, Car, Utensils } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import hotelLobbyBg from "@/assets/hotel-lobby-bg.jpg";
-import hotelReservationSummary from "@/assets/hotel-reservation-summary.jpg";
+import hotelReservationSummary from "@/assets/hotel-bill-statement.jpg";
 
 const HiltonHonors = () => {
   const navigate = useNavigate();
