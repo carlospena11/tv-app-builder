@@ -2,6 +2,7 @@ import { ArrowLeft, Star, Wifi, Waves, Car, Utensils } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import hotelLobbyBg from "@/assets/hotel-lobby-bg.jpg";
+import hotelReservationSummary from "@/assets/hotel-reservation-summary.jpg";
 
 const HiltonHonors = () => {
   const navigate = useNavigate();
@@ -102,24 +103,14 @@ const HiltonHonors = () => {
             </Card>
           </div>
 
-          {/* Hilton Honors Benefits */}
+          {/* Reservation Summary */}
           <div className="space-y-6">
-            <Card className="bg-blue-600 text-white border-0 p-6">
-              <h2 className="text-2xl font-bold mb-4">Beneficios Mi Hotel Rewards</h2>
-              <p className="mb-6 opacity-90">
-                Únete al programa de lealtad más reconocido del mundo y disfruta de beneficios exclusivos.
-              </p>
-              <div className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full" />
-                    <span>{benefit}</span>
-                  </div>
-                ))}
-              </div>
-              <button className="mt-6 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Registrarse Ahora
-              </button>
+            <Card className="bg-white/95 backdrop-blur-sm border-0 p-0 overflow-hidden">
+              <img 
+                src={hotelReservationSummary} 
+                alt="Resumen de Reserva y Estado de Cuenta" 
+                className="w-full h-auto object-contain"
+              />
             </Card>
 
             <Card className="bg-white/90 backdrop-blur-sm border-0 p-6">
