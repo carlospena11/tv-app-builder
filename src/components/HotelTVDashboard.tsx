@@ -13,6 +13,8 @@ import netflixLogo from "@/assets/netflix-logo.png";
 import primeVideoLogo from "@/assets/prime-video-logo.png";
 import disneyPlusLogo from "@/assets/disney-plus-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
+import aiAssistantQR from "@/assets/ai-assistant-qr.png";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
@@ -95,7 +97,8 @@ const HotelTVDashboard = () => {
     { name: "Prime Video", logo: primeVideoLogo, bgColor: "bg-blue-500" },
     { name: "Disney+", logo: disneyPlusLogo, bgColor: "bg-blue-700" },
     { name: "YouTube", logo: youtubeLogo, bgColor: "bg-white" },
-    { name: "Wi-Fi", logo: "📶", bgColor: "bg-gray-600" }
+    { name: "Wi-Fi", logo: "📶", bgColor: "bg-gray-600" },
+    { name: "Asistente IA", logo: aiAssistantQR, bgColor: "bg-purple-600", isQR: true }
   ];
 
   return (
@@ -282,37 +285,47 @@ const HotelTVDashboard = () => {
           </Card>
         </div>
 
-        {/* Streaming Apps - Optimizado para TV */}
-        <div className="tv-grid grid-cols-6 gap-6">
-          {streamingApps.map((app, index) => (
-            <Card 
-              key={index} 
-              className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition"
-              onClick={() => {
-                const urls: { [key: string]: string } = {
-                  "Netflix": "https://netflix.com",
-                  "Prime Video": "https://primevideo.com",
-                  "Disney+": "https://disneyplus.com",
-                  "YouTube": "https://youtube.com"
-                };
-                if (urls[app.name]) {
-                  window.open(urls[app.name], '_blank');
-                }
-              }}
-              tabIndex={0}
-              role="button"
-              aria-label={`Abrir ${app.name}`}
-            >
-              <div className="p-4 text-center">
-                {typeof app.logo === 'string' && app.logo.includes('/') ? (
-                  <img src={app.logo} alt={app.name} className="w-8 h-8 mx-auto mb-2 object-contain" />
-                ) : (
-                  <div className="text-2xl mb-2">{app.logo}</div>
-                )}
-                <p className="text-sm font-medium text-gray-800">{app.name}</p>
-              </div>
-            </Card>
-          ))}
+        {/* Streaming Apps - Scroll horizontal con navegación por control remoto */}
+        <div className="mb-4">
+          <h3 className="text-white text-lg font-semibold mb-4">Entretenimiento y Servicios</h3>
+          <ScrollArea className="w-full">
+            <div className="flex gap-6 pb-4">
+              {streamingApps.map((app, index) => (
+                <Card 
+                  key={index} 
+                  className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition flex-shrink-0 w-24"
+                  onClick={() => {
+                    const urls: { [key: string]: string } = {
+                      "Netflix": "https://netflix.com",
+                      "Prime Video": "https://primevideo.com",
+                      "Disney+": "https://disneyplus.com",
+                      "YouTube": "https://youtube.com"
+                    };
+                    if (urls[app.name]) {
+                      window.open(urls[app.name], '_blank');
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Abrir ${app.name}`}
+                >
+                  <div className="p-4 text-center">
+                    {typeof app.logo === 'string' && app.logo.includes('/') ? (
+                      <img 
+                        src={app.logo} 
+                        alt={app.name} 
+                        className={`${app.isQR ? 'w-12 h-12' : 'w-8 h-8'} mx-auto mb-2 object-contain`} 
+                      />
+                    ) : (
+                      <div className="text-2xl mb-2">{app.logo}</div>
+                    )}
+                    <p className="text-xs font-medium text-gray-800">{app.name}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
         </div>
       </div>
     </div>
