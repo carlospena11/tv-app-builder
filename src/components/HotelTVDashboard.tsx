@@ -100,7 +100,7 @@ const HotelTVDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden tv-safe-area">
+    <div className="min-h-screen relative overflow-hidden tv-safe-area responsive-container">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -112,7 +112,7 @@ const HotelTVDashboard = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-hotel-bg/60 to-background/60" />
       
       {/* Content with TV optimizations */}
-      <div className="relative z-10 p-8 tv-optimized">
+      <div className="relative z-10 p-4 sm:p-6 lg:p-8 tv-optimized responsive-padding">
         {/* Header */}
         <div className="flex justify-between items-start mb-8">
           {/* Hotel Logo and Info */}
@@ -165,11 +165,11 @@ const HotelTVDashboard = () => {
           </div>
         </div>
 
-        {/* Main Content Grid - Optimizado para TV */}
-        <div className="tv-grid grid-cols-12 gap-8 mb-8">
+        {/* Main Content Grid - Responsive y optimizado para TV */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 mb-6 lg:mb-8 responsive-grid">
           {/* Hilton Honors - Large card */}
           <Card 
-            className="col-span-5 bg-black/60 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="lg:col-span-5 bg-black/60 text-white border-0 overflow-hidden relative h-40 sm:h-48 lg:h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/hilton-honors")}
             tabIndex={0}
             role="button"
@@ -195,7 +195,7 @@ const HotelTVDashboard = () => {
 
           {/* Flight Status */}
           <Card 
-            className="col-span-7 bg-black/60 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="lg:col-span-7 bg-black/60 text-white border-0 overflow-hidden relative h-40 sm:h-48 lg:h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/flight-status")}
             tabIndex={0}
             role="button"
@@ -219,9 +219,9 @@ const HotelTVDashboard = () => {
         </div>
 
         {/* Services Grid - Optimizado para navegación TV */}
-        <div className="tv-grid grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 mb-6 lg:mb-8 responsive-services">
           <Card 
-            className="bg-black/60 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/60 text-white border-0 overflow-hidden h-24 sm:h-28 lg:h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/hotel-amenities")}
             tabIndex={0}
             role="button"
@@ -242,7 +242,7 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-black/60 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/60 text-white border-0 overflow-hidden h-24 sm:h-28 lg:h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/menu-services")}
             tabIndex={0}
             role="button"
@@ -263,7 +263,7 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/40 text-white border-0 overflow-hidden h-24 sm:h-28 lg:h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/discover-el-salvador")}
             tabIndex={0}
             role="button"
@@ -284,7 +284,7 @@ const HotelTVDashboard = () => {
         </div>
 
         {/* Streaming Apps - Optimizado para TV */}
-        <div className="tv-grid grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-6 responsive-streaming">
           {streamingApps.map((app, index) => (
             <Card 
               key={index} 

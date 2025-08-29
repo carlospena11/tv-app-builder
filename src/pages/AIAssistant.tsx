@@ -9,11 +9,11 @@ const AIAssistant = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden tv-safe-area">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden tv-safe-area responsive-container">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent" />
       
-      <div className="relative z-10 p-8 tv-optimized">
+      <div className="relative z-10 p-4 sm:p-6 lg:p-8 tv-optimized responsive-padding">
         {/* Header with back button */}
         <div className="flex items-center gap-4 mb-8">
           <Button
@@ -30,7 +30,7 @@ const AIAssistant = () => {
         </div>
 
         {/* Main content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 max-w-6xl mx-auto">
           {/* QR Code Section */}
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">
             <div className="bg-white rounded-2xl p-8 mb-6 inline-block">
