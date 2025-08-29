@@ -2,6 +2,7 @@ import { Clock, Wifi, Thermometer, Sun, Cloud, CloudRain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useTVFocus } from "@/hooks/useTVFocus";
 import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
 import hiltonHonorsIcon from "@/assets/hilton-honors-icon.jpg";
 import flightStatusIcon from "@/assets/flight-status-icon.jpg";
@@ -11,6 +12,7 @@ import elSalvadorTourismIcon from "@/assets/el-salvador-tourism-icon.jpg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
+  const { ref: initialFocusRef } = useTVFocus(true);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // Update time every second
@@ -93,7 +95,7 @@ const HotelTVDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden tv-safe-area">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -104,23 +106,27 @@ const HotelTVDashboard = () => {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-hotel-bg/60 to-background/60" />
       
-      {/* Content */}
-      <div className="relative z-10 p-8">
+      {/* Content with TV optimizations */}
+      <div className="relative z-10 p-8 tv-optimized">
         {/* Header */}
         <div className="flex justify-between items-start mb-8">
           {/* Hotel Logo and Info */}
           <div className="text-white">
             <div className="flex items-center gap-4 mb-2">
               <div 
-                className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200"
+                ref={initialFocusRef}
+                className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer focusable custom-focus"
                 onClick={() => navigate("/")}
+                tabIndex={0}
+                role="button"
+                aria-label="Ir al video de bienvenida"
               >
                 <span className="text-3xl font-bold text-hotel-primary">M</span>
               </div>
               <div>
-                <h1 className="text-3xl font-bold">Mi Hotel</h1>
-                <p className="text-lg opacity-90">SAN SALVADOR</p>
-                <p className="text-sm opacity-75">El Salvador, Centro América</p>
+                <h1 className="text-3xl font-bold tv-high-contrast">Mi Hotel</h1>
+                <p className="text-lg opacity-90 tv-high-contrast">SAN SALVADOR</p>
+                <p className="text-sm opacity-75 tv-high-contrast">El Salvador, Centro América</p>
               </div>
             </div>
           </div>
@@ -154,12 +160,15 @@ const HotelTVDashboard = () => {
           </div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-12 gap-6 mb-8">
+        {/* Main Content Grid - Optimizado para TV */}
+        <div className="tv-grid grid-cols-12 gap-8 mb-8">
           {/* Hilton Honors - Large card */}
           <Card 
-            className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:bg-blue-700 transition-colors"
+            className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/hilton-honors")}
+            tabIndex={0}
+            role="button"
+            aria-label="Acceder a Mi Hotel Rewards"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -180,8 +189,11 @@ const HotelTVDashboard = () => {
 
           {/* Flight Status */}
           <Card 
-            className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 cursor-pointer hover:from-orange-600 hover:to-orange-700 transition-colors"
+            className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/flight-status")}
+            tabIndex={0}
+            role="button"
+            aria-label="Ver estado de vuelos"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -199,11 +211,14 @@ const HotelTVDashboard = () => {
           </Card>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-3 gap-6 mb-8">
+        {/* Services Grid - Optimizado para navegación TV */}
+        <div className="tv-grid grid-cols-3 gap-8 mb-8">
           <Card 
-            className="bg-green-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-green-700 transition-colors relative"
+            className="bg-green-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/hotel-amenities")}
+            tabIndex={0}
+            role="button"
+            aria-label="Ver amenidades del hotel"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -219,8 +234,11 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-gray-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-gray-700 transition-colors relative"
+            className="bg-gray-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/menu-services")}
+            tabIndex={0}
+            role="button"
+            aria-label="Ver menú y servicios"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -236,8 +254,11 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-red-600 text-white border-0 overflow-hidden h-32 cursor-pointer hover:bg-red-700 transition-colors relative"
+            className="bg-red-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/discover-el-salvador")}
+            tabIndex={0}
+            role="button"
+            aria-label="Descubrir El Salvador"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -253,12 +274,12 @@ const HotelTVDashboard = () => {
           </Card>
         </div>
 
-        {/* Streaming Apps */}
-        <div className="grid grid-cols-6 gap-4">
+        {/* Streaming Apps - Optimizado para TV */}
+        <div className="tv-grid grid-cols-6 gap-6">
           {streamingApps.map((app, index) => (
             <Card 
               key={index} 
-              className="bg-white/90 backdrop-blur-sm border-0 hover:bg-white transition-colors cursor-pointer"
+              className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition"
               onClick={() => {
                 const urls: { [key: string]: string } = {
                   "Netflix": "https://netflix.com",
@@ -270,6 +291,9 @@ const HotelTVDashboard = () => {
                   window.open(urls[app.name], '_blank');
                 }
               }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Abrir ${app.name}`}
             >
               <div className="p-4 text-center">
                 <div className="text-2xl mb-2">{app.logo}</div>

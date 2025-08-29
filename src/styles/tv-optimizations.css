@@ -1,0 +1,97 @@
+/* Android TV specific CSS for focus navigation and optimizations */
+
+/* TV Safe Area - mantener contenido en área visible de TV */
+@media (min-width: 1024px) {
+  .tv-safe-area {
+    padding: 48px;
+    box-sizing: border-box;
+  }
+}
+
+/* Focus styles para navegación con control remoto */
+.focusable {
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.focusable:focus,
+.focusable:focus-visible {
+  outline: 3px solid #FFD700 !important;
+  outline-offset: 2px;
+  transform: scale(1.05);
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Navegación por foco para botones */
+button.focusable:focus,
+.card-focusable:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 3px solid #FFD700 !important;
+}
+
+/* Cursor invisible para TV */
+@media (pointer: coarse) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Optimizaciones para pantallas grandes */
+@media (min-width: 1920px) {
+  .tv-optimized {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  
+  .tv-large-text {
+    font-size: 2rem;
+  }
+  
+  .tv-extra-large {
+    font-size: 3rem;
+  }
+}
+
+/* Animaciones suaves para focus */
+.focus-transition {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+/* Grid navigation optimizations */
+.tv-grid {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+}
+
+/* Mejor contraste para TV */
+.tv-high-contrast {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Focus ring personalizado */
+.custom-focus:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px #FFD700,
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Disable text selection en TV */
+@media (pointer: coarse) {
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* TV specific scroll behavior */
+.tv-scroll {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
