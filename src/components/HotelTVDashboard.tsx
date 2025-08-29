@@ -14,6 +14,7 @@ import primeVideoLogo from "@/assets/prime-video-logo.png";
 import disneyPlusLogo from "@/assets/disney-plus-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
 import aiAssistantQR from "@/assets/ai-assistant-qr.png";
+import miHotelRewardsHero from "@/assets/mi-hotel-rewards-hero.jpg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
@@ -177,7 +178,7 @@ const HotelTVDashboard = () => {
           >
             <div 
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${hiltonHonorsIcon})` }}
+              style={{ backgroundImage: `url(${miHotelRewardsHero})` }}
             />
             <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 p-6 h-full flex flex-col justify-between">
