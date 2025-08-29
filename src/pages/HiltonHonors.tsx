@@ -109,7 +109,7 @@ const HiltonHonors = () => {
               <img 
                 src={hotelReservationSummary} 
                 alt="Resumen de Reserva y Estado de Cuenta" 
-                className="w-full h-auto object-contain"
+                className="w-4/5 h-auto object-contain mx-auto"
               />
             </Card>
 
