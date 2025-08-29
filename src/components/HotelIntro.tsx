@@ -116,10 +116,6 @@ const HotelIntro = () => {
         }}
       />
       
-      {/* Dynamic Scene Overlay */}
-      <div className={`absolute inset-0 transition-all duration-2000 ${scenes[currentScene]?.background || scenes[0].background}`} />
-      
-      
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-8">
         {/* Hotel Logo */}
@@ -132,13 +128,13 @@ const HotelIntro = () => {
           <p className="text-sm text-white opacity-75 mt-1">El Salvador, Centro América</p>
         </div>
 
-        {/* Dynamic Scene Content */}
+        {/* Dynamic Content */}
         <div className={`text-center mb-8 transition-all duration-2000 ${fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-3xl text-white font-light mb-3 transition-all duration-2000">
-            {scenes[currentScene]?.title || scenes[0].title}
+          <h3 className="text-3xl text-white font-light mb-3">
+            Bienvenido a Mi Hotel
           </h3>
-          <p className="text-lg text-white opacity-90 max-w-2xl transition-all duration-2000">
-            {scenes[currentScene]?.subtitle || scenes[0].subtitle}
+          <p className="text-lg text-white opacity-90 max-w-2xl">
+            Una experiencia única te espera en el corazón de San Salvador
           </p>
         </div>
 
@@ -155,18 +151,6 @@ const HotelIntro = () => {
               <p className="text-white/70 text-xs mt-1">Toca para continuar</p>
             </div>
           </Card>
-        </div>
-
-        {/* Scene Indicators */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {scenes.map((_, index) => (
-            <div 
-              key={index} 
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentScene ? 'bg-white scale-125' : 'bg-white/40'
-              }`} 
-            />
-          ))}
         </div>
 
         {/* Animated Elements */}
