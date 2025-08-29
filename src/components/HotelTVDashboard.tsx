@@ -164,14 +164,14 @@ const HotelTVDashboard = () => {
         <div className="tv-grid grid-cols-12 gap-8 mb-8">
           {/* Hilton Honors - Large card */}
           <Card 
-            className="col-span-5 bg-blue-600 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="col-span-5 bg-black/40 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/hilton-honors")}
             tabIndex={0}
             role="button"
             aria-label="Acceder a Mi Hotel Rewards"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${hiltonHonorsIcon})` }}
             />
             <div className="relative z-10 p-6 h-full flex flex-col justify-between">
@@ -189,14 +189,14 @@ const HotelTVDashboard = () => {
 
           {/* Flight Status */}
           <Card 
-            className="col-span-7 bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="col-span-7 bg-black/40 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/flight-status")}
             tabIndex={0}
             role="button"
             aria-label="Ver estado de vuelos"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${flightStatusIcon})` }}
             />
             <div className="relative z-10 p-6 h-full flex items-center justify-between">
@@ -214,14 +214,14 @@ const HotelTVDashboard = () => {
         {/* Services Grid - Optimizado para navegación TV */}
         <div className="tv-grid grid-cols-3 gap-8 mb-8">
           <Card 
-            className="bg-green-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/hotel-amenities")}
             tabIndex={0}
             role="button"
             aria-label="Ver amenidades del hotel"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${hotelAmenitiesIcon})` }}
             />
             <div className="relative z-10 p-4 h-full flex items-center justify-between">
@@ -234,14 +234,14 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-gray-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/menu-services")}
             tabIndex={0}
             role="button"
             aria-label="Ver menú y servicios"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${menuServicesIcon})` }}
             />
             <div className="relative z-10 p-4 h-full flex items-center justify-between">
@@ -254,14 +254,14 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-red-600 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/discover-el-salvador")}
             tabIndex={0}
             role="button"
             aria-label="Descubrir El Salvador"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${elSalvadorTourismIcon})` }}
             />
             <div className="relative z-10 p-4 h-full flex items-center justify-between">
