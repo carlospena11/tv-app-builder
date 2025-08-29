@@ -11,43 +11,43 @@ const HotelIntro = () => {
   const [currentScene, setCurrentScene] = useState(0);
   const [videoTime, setVideoTime] = useState(0);
   
-  const totalVideoDuration = 180; // 3 minutes in seconds
+  const totalVideoDuration = 60; // 1 minute in seconds
   
   const scenes = [
     {
       title: "Bienvenido a Mi Hotel",
       subtitle: "Una experiencia única te espera",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-blue-900/80 to-purple-900/80"
     },
     {
       title: "Habitaciones de Lujo",
       subtitle: "Comodidad y elegancia en cada detalle",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-emerald-900/80 to-blue-900/80"
     },
     {
       title: "Servicios Exclusivos",
       subtitle: "Restaurante gourmet y amenidades premium",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-orange-900/80 to-red-900/80"
     },
     {
       title: "Ubicación Privilegiada",
       subtitle: "En el corazón de San Salvador",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-teal-900/80 to-green-900/80"
     },
     {
       title: "Experiencias Únicas",
       subtitle: "Descubre El Salvador con nosotros",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-purple-900/80 to-pink-900/80"
     },
     {
       title: "Mi Hotel San Salvador",
       subtitle: "Tu hogar lejos de casa",
-      duration: 30,
+      duration: 10,
       background: "bg-gradient-to-r from-indigo-900/80 to-blue-900/80"
     }
   ];
