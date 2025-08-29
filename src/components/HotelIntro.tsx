@@ -74,7 +74,7 @@ const HotelIntro = () => {
           }
           setCurrentScene(sceneIndex);
           
-          // Loop video after 3 minutes
+          // Loop video after 1 minute
           if (newTime >= totalVideoDuration) {
             return 0;
           }
@@ -104,7 +104,27 @@ const HotelIntro = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
-      {/* Video Background Simulation */}
+      {/* Video Background - You can replace this src with a real hotel video */}
+      <video 
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay 
+        muted 
+        loop={true}
+        playsInline
+        onTimeUpdate={(e) => {
+          const video = e.target as HTMLVideoElement;
+          if (video.currentTime >= totalVideoDuration) {
+            video.currentTime = 0;
+          }
+        }}
+        style={{ opacity: 0.7 }}
+      >
+        {/* Replace this with a real hotel video URL */}
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Fallback Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{ 
