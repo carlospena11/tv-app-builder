@@ -119,27 +119,6 @@ const HotelIntro = () => {
       {/* Dynamic Scene Overlay */}
       <div className={`absolute inset-0 transition-all duration-2000 ${scenes[currentScene]?.background || scenes[0].background}`} />
       
-      {/* Video Controls */}
-      <div className="absolute top-6 right-6 z-20 flex items-center gap-4 bg-black/50 backdrop-blur-sm rounded-lg p-3">
-        <button 
-          onClick={togglePlayPause}
-          className="text-white hover:text-yellow-400 transition-colors"
-        >
-          {videoPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-        </button>
-        <span className="text-white text-sm font-mono">
-          {formatTime(videoTime)} / {formatTime(totalVideoDuration)}
-        </span>
-      </div>
-      
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-black/30 z-20">
-        <div 
-          className="h-full bg-yellow-400 transition-all duration-1000"
-          style={{ width: `${(videoTime / totalVideoDuration) * 100}%` }}
-        />
-      </div>
-      
       
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-8">
