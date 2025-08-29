@@ -1,7 +1,7 @@
 import { Clock, Wifi, Thermometer, Sun, Cloud, CloudRain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTVFocus } from "@/hooks/useTVFocus";
 import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
 import hiltonHonorsIcon from "@/assets/hilton-honors-icon.jpg";
@@ -14,12 +14,13 @@ import primeVideoLogo from "@/assets/prime-video-logo.png";
 import disneyPlusLogo from "@/assets/disney-plus-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
 import aiAssistantQR from "@/assets/ai-assistant-qr.png";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
   const { ref: initialFocusRef } = useTVFocus(true);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Update time every second
   useEffect(() => {
@@ -100,6 +101,36 @@ const HotelTVDashboard = () => {
     { name: "Wi-Fi", logo: "📶", bgColor: "bg-gray-600" },
     { name: "Asistente IA", logo: aiAssistantQR, bgColor: "bg-purple-600", isQR: true }
   ];
+
+  // Función para manejar navegación horizontal del scroll
+  const handleScrollKeyDown = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === 'ArrowLeft' && index > 0) {
+      event.preventDefault();
+      const prevElement = document.getElementById(`streaming-app-${index - 1}`);
+      if (prevElement) {
+        prevElement.focus();
+        // Scroll automático cuando llega al inicio visible
+        if (scrollContainerRef.current && index <= 2) {
+          const newPosition = Math.max(0, scrollPosition - 120);
+          scrollContainerRef.current.scrollTo({ left: newPosition, behavior: 'smooth' });
+          setScrollPosition(newPosition);
+        }
+      }
+    } else if (event.key === 'ArrowRight' && index < streamingApps.length - 1) {
+      event.preventDefault();
+      const nextElement = document.getElementById(`streaming-app-${index + 1}`);
+      if (nextElement) {
+        nextElement.focus();
+        // Scroll automático cuando llega al final visible
+        if (scrollContainerRef.current && index >= streamingApps.length - 4) {
+          const maxScroll = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
+          const newPosition = Math.min(maxScroll, scrollPosition + 120);
+          scrollContainerRef.current.scrollTo({ left: newPosition, behavior: 'smooth' });
+          setScrollPosition(newPosition);
+        }
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen relative overflow-hidden tv-safe-area">
@@ -288,11 +319,16 @@ const HotelTVDashboard = () => {
         {/* Streaming Apps - Scroll horizontal con navegación por control remoto */}
         <div className="mb-4">
           <h3 className="text-white text-lg font-semibold mb-4">Entretenimiento y Servicios</h3>
-          <ScrollArea className="w-full">
-            <div className="flex gap-6 pb-4">
+          <div className="relative">
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 pb-4 overflow-x-hidden scrollbar-hide"
+              style={{ scrollBehavior: 'smooth' }}
+            >
               {streamingApps.map((app, index) => (
                 <Card 
-                  key={index} 
+                  key={index}
+                  id={`streaming-app-${index}`}
                   className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition flex-shrink-0 w-24"
                   onClick={() => {
                     const urls: { [key: string]: string } = {
@@ -305,6 +341,7 @@ const HotelTVDashboard = () => {
                       window.open(urls[app.name], '_blank');
                     }
                   }}
+                  onKeyDown={(e) => handleScrollKeyDown(e, index)}
                   tabIndex={0}
                   role="button"
                   aria-label={`Abrir ${app.name}`}
@@ -324,8 +361,7 @@ const HotelTVDashboard = () => {
                 </Card>
               ))}
             </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+          </div>
         </div>
       </div>
     </div>
