@@ -1,7 +1,7 @@
 import { Clock, Wifi, Thermometer, Sun, Cloud, CloudRain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useTVFocus } from "@/hooks/useTVFocus";
 import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
 import hiltonHonorsIcon from "@/assets/hilton-honors-icon.jpg";
@@ -19,8 +19,6 @@ const HotelTVDashboard = () => {
   const navigate = useNavigate();
   const { ref: initialFocusRef } = useTVFocus(true);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Update time every second
   useEffect(() => {
@@ -98,39 +96,8 @@ const HotelTVDashboard = () => {
     { name: "Prime Video", logo: primeVideoLogo, bgColor: "bg-blue-500" },
     { name: "Disney+", logo: disneyPlusLogo, bgColor: "bg-blue-700" },
     { name: "YouTube", logo: youtubeLogo, bgColor: "bg-white" },
-    { name: "Wi-Fi", logo: "📶", bgColor: "bg-gray-600" },
     { name: "Asistente IA", logo: aiAssistantQR, bgColor: "bg-purple-600", isQR: true }
   ];
-
-  // Función para manejar navegación horizontal del scroll
-  const handleScrollKeyDown = (event: React.KeyboardEvent, index: number) => {
-    if (event.key === 'ArrowLeft' && index > 0) {
-      event.preventDefault();
-      const prevElement = document.getElementById(`streaming-app-${index - 1}`);
-      if (prevElement) {
-        prevElement.focus();
-        // Scroll automático cuando llega al inicio visible
-        if (scrollContainerRef.current && index <= 2) {
-          const newPosition = Math.max(0, scrollPosition - 120);
-          scrollContainerRef.current.scrollTo({ left: newPosition, behavior: 'smooth' });
-          setScrollPosition(newPosition);
-        }
-      }
-    } else if (event.key === 'ArrowRight' && index < streamingApps.length - 1) {
-      event.preventDefault();
-      const nextElement = document.getElementById(`streaming-app-${index + 1}`);
-      if (nextElement) {
-        nextElement.focus();
-        // Scroll automático cuando llega al final visible
-        if (scrollContainerRef.current && index >= streamingApps.length - 4) {
-          const maxScroll = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
-          const newPosition = Math.min(maxScroll, scrollPosition + 120);
-          scrollContainerRef.current.scrollTo({ left: newPosition, behavior: 'smooth' });
-          setScrollPosition(newPosition);
-        }
-      }
-    }
-  };
 
   return (
     <div className="min-h-screen relative overflow-hidden tv-safe-area">
@@ -316,52 +283,45 @@ const HotelTVDashboard = () => {
           </Card>
         </div>
 
-        {/* Streaming Apps - Scroll horizontal con navegación por control remoto */}
-        <div className="mb-4">
-          <h3 className="text-white text-lg font-semibold mb-4">Entretenimiento y Servicios</h3>
-          <div className="relative">
-            <div 
-              ref={scrollContainerRef}
-              className="flex gap-6 pb-4 overflow-x-hidden scrollbar-hide"
-              style={{ scrollBehavior: 'smooth' }}
+        {/* Streaming Apps - Optimizado para TV */}
+        <div className="tv-grid grid-cols-6 gap-6">
+          {streamingApps.map((app, index) => (
+            <Card 
+              key={index} 
+              className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition"
+              onClick={() => {
+                if (app.name === "Asistente IA") {
+                  navigate("/dashboard/ai-assistant");
+                } else {
+                  const urls: { [key: string]: string } = {
+                    "Netflix": "https://netflix.com",
+                    "Prime Video": "https://primevideo.com",
+                    "Disney+": "https://disneyplus.com",
+                    "YouTube": "https://youtube.com"
+                  };
+                  if (urls[app.name]) {
+                    window.open(urls[app.name], '_blank');
+                  }
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Abrir ${app.name}`}
             >
-              {streamingApps.map((app, index) => (
-                <Card 
-                  key={index}
-                  id={`streaming-app-${index}`}
-                  className="bg-white/90 backdrop-blur-sm border-0 transition-colors focusable card-focusable focus-transition flex-shrink-0 w-24"
-                  onClick={() => {
-                    const urls: { [key: string]: string } = {
-                      "Netflix": "https://netflix.com",
-                      "Prime Video": "https://primevideo.com",
-                      "Disney+": "https://disneyplus.com",
-                      "YouTube": "https://youtube.com"
-                    };
-                    if (urls[app.name]) {
-                      window.open(urls[app.name], '_blank');
-                    }
-                  }}
-                  onKeyDown={(e) => handleScrollKeyDown(e, index)}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`Abrir ${app.name}`}
-                >
-                  <div className="p-4 text-center">
-                    {typeof app.logo === 'string' && app.logo.includes('/') ? (
-                      <img 
-                        src={app.logo} 
-                        alt={app.name} 
-                        className={`${app.isQR ? 'w-12 h-12' : 'w-8 h-8'} mx-auto mb-2 object-contain`} 
-                      />
-                    ) : (
-                      <div className="text-2xl mb-2">{app.logo}</div>
-                    )}
-                    <p className="text-xs font-medium text-gray-800">{app.name}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
+              <div className="p-4 text-center">
+                {typeof app.logo === 'string' && app.logo.includes('/') ? (
+                  <img 
+                    src={app.logo} 
+                    alt={app.name} 
+                    className={`${app.isQR ? 'w-12 h-12' : 'w-8 h-8'} mx-auto mb-2 object-contain`} 
+                  />
+                ) : (
+                  <div className="text-2xl mb-2">{app.logo}</div>
+                )}
+                <p className="text-sm font-medium text-gray-800">{app.name}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </div>
