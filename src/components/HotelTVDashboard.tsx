@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useTVFocus } from "@/hooks/useTVFocus";
 import hotelRoomBg from "@/assets/hotel-room-bg.jpg";
 import hiltonHonorsIcon from "@/assets/hilton-honors-icon.jpg";
-import flightStatusIcon from "@/assets/flight-status-icon.jpg";
+import flightStatusIcon from "@/assets/airport-terminal-lounge.jpg";
 import hotelAmenitiesIcon from "@/assets/hotel-amenities-icon.jpg";
 import menuServicesIcon from "@/assets/menu-services-icon.jpg";
 import elSalvadorTourismIcon from "@/assets/el-salvador-tourism-icon.jpg";
