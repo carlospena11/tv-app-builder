@@ -14,7 +14,7 @@ import primeVideoLogo from "@/assets/prime-video-logo.png";
 import disneyPlusLogo from "@/assets/disney-plus-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
 import aiAssistantQR from "@/assets/ai-assistant-qr.png";
-import miHotelRewardsHero from "@/assets/mi-hotel-rewards-hero.jpg";
+import miHotelRewardsHero from "@/assets/hotel-facade-rewards.jpg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
