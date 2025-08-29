@@ -11,7 +11,7 @@ const HotelIntro = () => {
   const [currentScene, setCurrentScene] = useState(0);
   const [videoTime, setVideoTime] = useState(0);
   
-  const totalVideoDuration = 60; // 1 minute in seconds
+  const totalVideoDuration = 30; // 30 seconds
   
   const scenes = [
     {
@@ -21,34 +21,16 @@ const HotelIntro = () => {
       background: "bg-gradient-to-r from-blue-900/80 to-purple-900/80"
     },
     {
-      title: "Habitaciones de Lujo",
+      title: "Servicios de Lujo",
       subtitle: "Comodidad y elegancia en cada detalle",
       duration: 10,
       background: "bg-gradient-to-r from-emerald-900/80 to-blue-900/80"
     },
     {
-      title: "Servicios Exclusivos",
-      subtitle: "Restaurante gourmet y amenidades premium",
-      duration: 10,
-      background: "bg-gradient-to-r from-orange-900/80 to-red-900/80"
-    },
-    {
-      title: "Ubicación Privilegiada",
-      subtitle: "En el corazón de San Salvador",
-      duration: 10,
-      background: "bg-gradient-to-r from-teal-900/80 to-green-900/80"
-    },
-    {
-      title: "Experiencias Únicas",
-      subtitle: "Descubre El Salvador con nosotros",
-      duration: 10,
-      background: "bg-gradient-to-r from-purple-900/80 to-pink-900/80"
-    },
-    {
       title: "Mi Hotel San Salvador",
       subtitle: "Tu hogar lejos de casa",
       duration: 10,
-      background: "bg-gradient-to-r from-indigo-900/80 to-blue-900/80"
+      background: "bg-gradient-to-r from-orange-900/80 to-red-900/80"
     }
   ];
 
@@ -74,7 +56,7 @@ const HotelIntro = () => {
           }
           setCurrentScene(sceneIndex);
           
-          // Loop video after 1 minute
+          // Loop video after 30 seconds
           if (newTime >= totalVideoDuration) {
             return 0;
           }
@@ -120,7 +102,7 @@ const HotelIntro = () => {
         style={{ opacity: 0.7 }}
       >
         {/* Replace this with a real hotel video URL */}
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+        <source src="https://sample-videos.com/zip/10/mp4/360/SampleVideo_360x240_30s.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
