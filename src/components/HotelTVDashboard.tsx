@@ -164,7 +164,7 @@ const HotelTVDashboard = () => {
         <div className="tv-grid grid-cols-12 gap-8 mb-8">
           {/* Hilton Honors - Large card */}
           <Card 
-            className="col-span-5 bg-black/40 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="col-span-5 bg-black/60 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/hilton-honors")}
             tabIndex={0}
             role="button"
@@ -174,6 +174,7 @@ const HotelTVDashboard = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${hiltonHonorsIcon})` }}
             />
+            <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 p-6 h-full flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Mi Hotel Rewards</h2>
@@ -189,7 +190,7 @@ const HotelTVDashboard = () => {
 
           {/* Flight Status */}
           <Card 
-            className="col-span-7 bg-black/40 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
+            className="col-span-7 bg-black/60 text-white border-0 overflow-hidden relative h-48 focusable card-focusable focus-transition"
             onClick={() => navigate("/dashboard/flight-status")}
             tabIndex={0}
             role="button"
@@ -199,6 +200,7 @@ const HotelTVDashboard = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${flightStatusIcon})` }}
             />
+            <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 p-6 h-full flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Flight status</h2>
@@ -214,7 +216,7 @@ const HotelTVDashboard = () => {
         {/* Services Grid - Optimizado para navegación TV */}
         <div className="tv-grid grid-cols-3 gap-8 mb-8">
           <Card 
-            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/60 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/hotel-amenities")}
             tabIndex={0}
             role="button"
@@ -224,6 +226,7 @@ const HotelTVDashboard = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${hotelAmenitiesIcon})` }}
             />
+            <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Enjoy your Hotel</h3>
@@ -234,7 +237,7 @@ const HotelTVDashboard = () => {
           </Card>
 
           <Card 
-            className="bg-black/40 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
+            className="bg-black/60 text-white border-0 overflow-hidden h-32 focusable card-focusable focus-transition relative"
             onClick={() => navigate("/dashboard/menu-services")}
             tabIndex={0}
             role="button"
@@ -244,6 +247,7 @@ const HotelTVDashboard = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${menuServicesIcon})` }}
             />
+            <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 p-4 h-full flex items-center justify-between">
               <div>
                 <h3 className="font-bold">Menu and services</h3>
