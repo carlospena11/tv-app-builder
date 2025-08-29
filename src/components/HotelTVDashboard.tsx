@@ -9,6 +9,10 @@ import flightStatusIcon from "@/assets/flight-status-icon.jpg";
 import hotelAmenitiesIcon from "@/assets/hotel-amenities-icon.jpg";
 import menuServicesIcon from "@/assets/menu-services-icon.jpg";
 import elSalvadorTourismIcon from "@/assets/el-salvador-tourism-icon.jpg";
+import netflixLogo from "@/assets/netflix-logo.png";
+import primeVideoLogo from "@/assets/prime-video-logo.png";
+import disneyPlusLogo from "@/assets/disney-plus-logo.png";
+import youtubeLogo from "@/assets/youtube-logo.svg";
 
 const HotelTVDashboard = () => {
   const navigate = useNavigate();
@@ -87,10 +91,10 @@ const HotelTVDashboard = () => {
 
   const streamingApps = [
     { name: "Stream TV", logo: "📺" },
-    { name: "Netflix", logo: "N", bgColor: "bg-red-600" },
-    { name: "Prime Video", logo: "📹", bgColor: "bg-blue-500" },
-    { name: "Disney+", logo: "D+", bgColor: "bg-blue-700" },
-    { name: "YouTube", logo: "▶️", bgColor: "bg-red-500" },
+    { name: "Netflix", logo: netflixLogo, bgColor: "bg-black" },
+    { name: "Prime Video", logo: primeVideoLogo, bgColor: "bg-blue-500" },
+    { name: "Disney+", logo: disneyPlusLogo, bgColor: "bg-blue-700" },
+    { name: "YouTube", logo: youtubeLogo, bgColor: "bg-white" },
     { name: "Wi-Fi", logo: "📶", bgColor: "bg-gray-600" }
   ];
 
@@ -300,7 +304,11 @@ const HotelTVDashboard = () => {
               aria-label={`Abrir ${app.name}`}
             >
               <div className="p-4 text-center">
-                <div className="text-2xl mb-2">{app.logo}</div>
+                {typeof app.logo === 'string' && app.logo.includes('/') ? (
+                  <img src={app.logo} alt={app.name} className="w-8 h-8 mx-auto mb-2 object-contain" />
+                ) : (
+                  <div className="text-2xl mb-2">{app.logo}</div>
+                )}
                 <p className="text-sm font-medium text-gray-800">{app.name}</p>
               </div>
             </Card>
