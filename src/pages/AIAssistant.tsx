@@ -73,7 +73,7 @@ const AIAssistant = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">4</span>
-                      <span>¡Comienza a chatear con nuestro asistente!</span>
+                      <span>¡Comienza a hablar con nuestro asistente!</span>
                     </li>
                   </ol>
                 </div>
