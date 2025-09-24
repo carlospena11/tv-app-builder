@@ -12,6 +12,7 @@ import HotelAmenities from "./pages/HotelAmenities";
 import MenuServices from "./pages/MenuServices";
 import DiscoverElSalvador from "./pages/DiscoverElSalvador";
 import AIAssistant from "./pages/AIAssistant";
+import Presentation from "./pages/Presentation";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/dashboard/menu-services" element={<MenuServices />} />
           <Route path="/dashboard/discover-el-salvador" element={<DiscoverElSalvador />} />
           <Route path="/dashboard/ai-assistant" element={<AIAssistant />} />
+          <Route path="/presentation" element={<Presentation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
