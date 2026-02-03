@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import hotelIntroVideo from "@/assets/hotel-intro-video.mp4";
 
 const HotelIntro = () => {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ const HotelIntro = () => {
         playsInline
         style={{ opacity: 0.8 }}
       >
-        <source src={hotelIntroVideo} type="video/mp4" />
+        <source src="/hotel-intro-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
